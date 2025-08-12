@@ -3,6 +3,9 @@ Author: Natsuki Subaru
 Release date: 12 Aug 2025 (12/08/2025)
 License: MIT
 
+please read the full file before downloading
+[⬜️ **Download Windows x64 version** ⬜️](https://github.com/NatsukiSubaruGH/anirip/releases/download/v0.0.1-beta/ANIRIP.WINDOWS.x64.version.0.0.1.zip)
+
 TL;DR
 AniRip is a small PyQt6 desktop app that finds direct episode sources from AnimePahe and downloads episodes in parallel. On first run it silently downloads and caches UI assets (icon / images / svgs) to a per-user cache folder, logs where it put them, and will exit if any required asset fails to download (per project policy). Use it responsibly.Based on ANIMEPAHE AND ANIMESAM API,you can change this to any other api for your use case
 
