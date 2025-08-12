@@ -1,1 +1,173 @@
+AniRip — v0.0.1 (beta1) Help Guide
+Author: Natsuki Subaru
+Release date: 12 Aug 2025
+License: MIT
 
+Purpose
+AniRip is a PyQt6 desktop tool for finding and downloading anime episodes directly from AnimePahe’s API.
+It’s designed to be simple to use, fast, and accurate, with parallel downloading and built-in asset caching.
+It is intended for personal, educational, and lawful usage only.
+
+1 — First Run Behavior (EXE version)
+When you run AniRip for the very first time:
+
+Silent Asset Download:
+
+AniRip downloads the following files from its GitHub repo:
+
+icon.ico → window/app icon (Windows-friendly)
+
+icon.jpg → main background image
+
+github.svg → GitHub button icon
+
+reddit.svg → Reddit button icon
+
+help.svg → help button icon
+
+These assets are saved to a per-user cache folder:
+
+Windows: %LOCALAPPDATA%\AniRip\assets\
+
+Linux/macOS: ~/.anirip/assets/
+
+Logging:
+
+AniRip logs exactly where the assets are stored in assets.log (inside the assets folder).
+
+Example log entry:
+
+yaml
+Copy
+Edit
+2025-08-12 14:02:45 | Asset cached: icon.ico → C:\Users\You\AppData\Local\AniRip\assets\icon.ico
+Failure Policy:
+
+If any required asset fails to download (network error, bad connection, missing file), AniRip will:
+
+Log the error to assets.log
+
+Exit immediately
+
+This is intentional — you must have all assets before AniRip will function.
+
+2 — Quick Start (Basic Usage)
+Open AniRip.exe
+
+Wait for the UI to load (assets will already be cached after first run).
+
+Search for Anime
+
+Enter a title in the search box.
+
+Press Search → AniRip queries AnimePahe and returns up to 6 matches in a dropdown list.
+
+Select Anime
+
+Pick the anime from the dropdown.
+
+Choose Language
+
+JP Sub → Japanese audio + subtitles
+
+Eng Dub → English dubbed version
+
+Choose Quality
+
+1080p
+
+720p
+
+360p
+(Only sources that match the chosen quality are downloaded.)
+
+Enter Episodes to Download
+Supported formats:
+
+all → All episodes
+
+1-12 or range 1-12 → Continuous range
+
+1,3,5 or list 1,3,5 → Specific episodes
+
+5 → Single episode
+
+Start Download
+
+AniRip creates a folder named after the anime title (special characters replaced).
+
+Episodes are downloaded in parallel (up to 10 at once).
+
+The progress bar shows % of episodes completed (not bytes).
+
+The log panel shows per-episode messages.
+
+When Finished
+
+All files will be in the anime’s folder in the same directory as AniRip.exe (unless run from another location).
+
+3 — File Locations
+Assets & Logs:
+
+Windows: %LOCALAPPDATA%\AniRip\assets\
+
+Linux/macOS: ~/.anirip/assets/
+
+Files:
+
+icon.ico, icon.jpg, github.svg, reddit.svg, help.svg
+
+assets.log (asset download events/errors)
+
+Downloads:
+
+Current working directory → <Anime_Title>/
+
+Example:
+
+Copy
+Edit
+./One_Piece/One_Piece - Ep001 - 1080p.mp4
+4 — Known Issues & Quirks (Intentional)
+No asset = no app: Missing assets cause an immediate crash. This is by design.
+
+Progress bar ≠ byte progress: It shows episodes completed, not file size progress.
+
+Max 6 search results: Hardcoded for simplicity.
+
+Parallel download cap: 10 workers max; going higher may cause bans from AnimePahe.
+
+Episode validation: If you request episodes outside the available range, the download won’t start.
+
+5 — Troubleshooting
+Problem: “AniRip closes immediately on first run.”
+
+Check assets.log in the cache folder.
+
+If any asset failed to download, delete the assets folder and restart AniRip with a stable internet connection.
+
+Problem: Downloads start but some episodes fail.
+
+Check your internet connection; failed episodes must be retried manually.
+
+Problem: “Search” returns no results.
+
+Verify spelling.
+
+AnimePahe may be down or API rate-limited.
+
+Problem: Quality/language missing from list.
+
+Not all anime have every resolution or language. Choose what’s available.
+
+6 — Reporting Issues
+Submit bugs here: GitHub Issues
+Include:
+
+OS version
+
+Whether you used the .exe or raw Python
+
+assets.log
+
+Exact search term & episode input used
