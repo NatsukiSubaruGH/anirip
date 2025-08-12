@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<changelog>
+    <release version="0.0.1" codename="beta1" date="2025-08-12">
+        <summary>Initial beta release with core functionality implemented.</summary>
+        <features>
+            <feature>Graphical User Interface (GUI) for user interaction</feature>
+            <feature>Search functionality for fetching target content</feature>
+            <feature>Parallel download worker for improved performance</feature>
+            <feature>Asset caching to reduce redundant downloads</feature>
+            <feature>Logging for download and runtime activities</feature>
+        </features>
+        <behavior>
+            <note>Application intentionally crashes on asset-download failure to enforce strict debugging and testing.</note>
+            <note>Progress bar displays episode completion percentage in real time.</note>
+        </behavior>
+    </release>
+</changelog>
